@@ -472,7 +472,7 @@ Module({
     use: 'group'
 }, (async (message, match) => {
     if (!message.isGroup) return await message.sendReply(Lang.GROUP_COMMAND)
-    let adminAccesValidated = ADMIN_ACCESS ? await isAdmin(message,message.sender) : false;
+    let adminAccesValidated = ADMIN_ACCESS ? await isAdmin(message,message.sender) : true;
     if (message.fromOwner || adminAccesValidated) {
     var {participants} = await message.client.groupMetadata(message.jid)
     var jids = [];
